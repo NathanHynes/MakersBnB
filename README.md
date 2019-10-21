@@ -49,14 +49,12 @@ I want to be able to see avialble spaces to rent
 
 - Table: Listings  
 | id |  property  | description | cost | user_id |  
-|----+------------+-------------+------+---------|  
-| 1  | "cottage"  |   "cosy"    |   £  |    1    |  
   
 - knows about Users.
 ------
+
 - Table: Users  
 | id | email | user_name | first_name | last_name | password (encrypted) |  
-|----+-------+-----------+------------+-----------+----------------------|  
  
 ------
 
