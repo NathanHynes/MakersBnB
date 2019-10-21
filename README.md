@@ -61,7 +61,6 @@ I want to be able to see avialble spaces to rent
 ### Class Diagram
 
 |MakersBnB| - > | User | -> | Listing |  
-|---------|     |------|    |---------|   
 
 ------
 
