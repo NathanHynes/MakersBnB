@@ -6,24 +6,24 @@ We would like a web application that allows users to list spaces they have avail
 
 ## User Stories MVP
 ```
-As a user 
+As a user
 I want to be able to sign up to MakersBnB.
 
-As a user 
+As a user
 I want to be able to log in to Makers BnB
 
-As a user 
+As a user
 I want to be able to list a space to rent out giving a name, description and nightly cost
 
-As a user 
-I want to be able to see avialble spaces to rent 
+As a user
+I want to be able to see avialble spaces to rent
 ```
 -----
 
 ## MVP Model
 ### Views
 - Log in page - homepage
-- Sign up page 
+- Sign up page
 - list of available spaces.
 - new listing page.
 
@@ -49,13 +49,13 @@ I want to be able to see avialble spaces to rent
 
 - Table: Listings  
 | id |  property  | description | cost | user_id |  
-  
+
 - knows about Users.
 ------
 
 - Table: Users  
 | id | email | user_name | first_name | last_name | password (encrypted) |  
- 
+
 ------
 
 ### Class Diagram
@@ -65,10 +65,25 @@ I want to be able to see avialble spaces to rent
 ------
 
  ## Technologies used:
- 
+
 ------
 
 ------
 ## How to set up the project:
+
+## Setup
+
+Git clone this repo.
+
+Make sure you have postgrl installed and run the two commands below in the terminal:
+
+CREATE DATABASE MakersBnB_development
+CREATE DATABASE MakersBnB_test
+After this open the repo in your favourite editor and run bundle install to install all gem dependencies.
+
+CD into the repo and run the command rackup in the terminal.
+
+Navigate to http://localhost:9292 within your favourite browser. Enjoy!
+
 
 ------
