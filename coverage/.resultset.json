@@ -1,15 +1,31 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/test_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/test_spec.rb": [
         1,
         1,
         1,
         1,
         null,
         null
+      ],
+      "/Users/student/Projects/MakersBnB/spec/models/listing_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1571665781
+    "timestamp": 1571736321
   }
 }
