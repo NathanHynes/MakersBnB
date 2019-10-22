@@ -41,12 +41,12 @@ I want to be able to see avialble spaces to rent
 
 
 
-## MVP Model -1
+## MVP Model 
 ### Views
-- Log in page - homepage
-- Sign up page
-- list of available spaces.
-- new listing page.
+- Homepage - (+ log in)
+- New User (Sign up)
+- all Listings
+- new Listing
 -----
 
 ### Features:
@@ -57,11 +57,14 @@ I want to be able to see avialble spaces to rent
 -----
 
 ### Domain Relationships
-- MakersBnB has MANY Users
+- ONE MakersBnB has MANY Users
 |MakersBnB|---≡|Users|  
 
-- User has MANY listings
+- ONE User has MANY listings
 |user|---≡|listings|  
+
+- ONE Listing has MANY Booking_Requests
+|listing|---≡|Booking_Requests| 
 
 ------
 
@@ -70,20 +73,38 @@ I want to be able to see avialble spaces to rent
 - Table: Listings  
 | id |  property  | description | cost | user_id |  
 
-- knows about Users.
-------
+- knows about: Users  
 
+------
 - Table: Users  
 | id | email | user_name | first_name | last_name | password (encrypted) |  
 
-- Table: Requests  
+------
+- Table: Availability  
+| id | listing_id | start_date | end_date | 
+
+- knows about: Listings, Bookings  
+
+------
+- Table: Booking_Requests  
 | id | listing_id | user_id | requested_date | 
+
+- knows about: Users, Listings  
+
+------
+- Table: Bookings 
+| id | listing_id | user_id | date | 
+
+- knows about: Users, Listings  
 
 ------
 
 ### Class Diagram
 
-|MakersBnB| - > | User | -> | Listing | -> Requests
+|MakersBnB| - > | User | -> | Listing |    
+  
+| Listing | -> | Booking_Requests |  
+| Listing | -> | Availability |  
 
 ------
 
