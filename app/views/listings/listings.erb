@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-
 <html>
 <body>
 <h2>Listings</h2>
-
 <ul
 <% @listings.each do |listing| %>
-  <p>
-  Property name: <%= listing.name %> --- Property description: <%= listing.description %> ---  Cost per night: <%= listing.cost %>
-  </p>
-  <p>
-    Property owner: <%= listing.user.username%>
-  </p>
-  <br>
-  <br>
+ <p>
+ Property name: <%= listing.name %> --- Property description: <%= listing.description %> ---
+ Cost per night: <%= listing.cost %> ---  Available from: <%= listing.date_from %> ---  Available to: <%= listing.date_to %>
+ </p>
+ <p>
+   Property owner: <%= listing.user.username%>
+ </p>
+ <br>
+ <br>
 <% end %>
 
-<form action="/listings/new" method="get">
-  <input type="submit" value="submit">
-</form>
-
 </ul>
+<form action="/listings/new" method="get">
+  <input type="submit" value="New Listing">
+</form>
 </body>
 </html>

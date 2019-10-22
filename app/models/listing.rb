@@ -12,6 +12,12 @@ property :description, String, :length => 100, :required => true, :messages => {
 property :cost, Integer, :required => true, :messages => {
   :presence => "Please enter the nightly cost of your property"
 }
+property :date_from, Date, :required => true, :messages => {
+ :presence => "Please enter a starting date for your listing"
+}
+property :date_to, Date, :required => true, :messages => {
+ :presence => "Please enter an end date for your listing"
+}
 
 belongs_to :user
 
