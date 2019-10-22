@@ -13,6 +13,6 @@ property :cost, Integer, :required => true, :messages => {
   :presence => "Please enter the nightly cost of your property"
 }
 
-# belongs_to :user
+belongs_to :user
 
 end
