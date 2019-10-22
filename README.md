@@ -92,7 +92,7 @@ I want to be able to see avialble spaces to rent
 - knows about: Users, Listings  
 
 ------
-- Table: Bookings 
+- Table: Bookings   
 | id | listing_id | user_id | date | 
 
 - knows about: Users, Listings  
