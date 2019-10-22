@@ -10,7 +10,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/create' do
-   newlisting = Listing.create(name: params[:name], description: params[:description], cost: params[:cost], user_id: 1 )
+   Listing.create(name: params[:name], description: params[:description], cost: params[:cost], user_id: current_user.id )
    redirect '/listings'
   end
 

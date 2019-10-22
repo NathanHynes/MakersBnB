@@ -1,23 +1,27 @@
 <!DOCTYPE HTML>
 <html lang = "en">
 <head>
-  <!-- basic.html -->
-  <title>basic.html</title>
+  <title>bMakersBnB</title>
   <meta charset = "UTF-8" />
 </head>
 <body>
   <center>
     <img src="images/logo.png" alt="MakersBnB logo" style="width:15em;height:15em;">
   </center>
+  <% if current_user %>
+  <center>
+    <h1>Welcome <%= current_user.username %></h1>
+    </center>
+    <% else %>
   <div id="log_in">
     <form action="/sessions" method="post">
       <input type="text" name="username_login" placeholder="Username">
       <input type="password" name="password_login" placeholder="Password">
       <input type="submit" value="Log In">
     </form>
-    <%= flash[:alert] %>
     <br>
     <br>
+    </div>
     <div id="sign_in">
       <form action="/users" method = 'post'>
         <input type="text" name="forename" placeholder="First name">
@@ -34,6 +38,7 @@
   <div class="guest">
     <a href="/listings">Continue as Guest</a>
 
-    </div>
+  </div>
+  <% end %>
 </body>
 </html>

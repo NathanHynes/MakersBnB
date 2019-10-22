@@ -1,13 +1,8 @@
 feature "Adding a new listing" do
 
   scenario "Add a new listing and view it in on the listings page" do
-    user = User.create(
-      :forename => 'Joe',
-      :surname => 'Bloggs',
-      :email => 'noddy@hotmail.com',
-      :username => 'JoeBloggs',
-      :password => 'password123'
-    )
+    user_sign_up
+    user_log_in
     visit "/listings/new"
     fill_in('name', with: "Sids bungalow")
     fill_in('description', with: "Sid loves his bungalow")

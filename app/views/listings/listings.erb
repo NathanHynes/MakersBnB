@@ -9,6 +9,11 @@
   <p>
   Property name: <%= listing.name %> --- Property description: <%= listing.description %> ---  Cost per night: <%= listing.cost %>
   </p>
+  <p>
+    Property owner: <%= listing.user.username%>
+  </p>
+  <br>
+  <br>
 <% end %>
 
 <form action="/listings/new" method="get">
