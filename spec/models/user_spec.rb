@@ -1,7 +1,7 @@
 require './app/models/user'
 
-describe User do 
-  it 'creates a new user' do 
+describe User do
+  it 'creates a new user' do
     user = User.create(
       :forename => 'Joe',
       :surname => 'Bloggs',
@@ -15,7 +15,7 @@ describe User do
     expect(user.forename).to eq 'Joe'
   end
 
-  it 'authenticates a user log in' do 
+  it 'authenticates a user log in' do
     user = User.create(
       :forename => 'Joe',
       :surname => 'Bloggs',
@@ -23,13 +23,11 @@ describe User do
       :username => 'JoeBloggs',
       :password => 'password123'
     )
-    p user
     authenticated_user = User.authenticate(username: 'JoeBloggs', password: 'password123')
-    p authenticated_user
     expect(authenticated_user.id).to eq user.id
   end
 
-  it 'does not authenticate a incorrect user log in' do 
+  it 'does not authenticate a incorrect user log in' do
     user = User.create(
       :forename => 'Joe',
       :surname => 'Bloggs',
