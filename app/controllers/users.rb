@@ -7,12 +7,12 @@ class MakersBnB < Sinatra::Base
       surname: params[:surname],
       email: params[:email],
       username: params[:username],
-      password: params[:password],
+      password: params[:password]
     )
     if user.save
       session[:user_id] = user.id
     else
-      flash[:notice] = user.errors.full_messages  
+      flash[:notice] = user.errors.full_messages
     end
     redirect '/listings'
   end

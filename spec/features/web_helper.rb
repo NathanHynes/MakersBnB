@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def user_sign_up
   visit '/'
   fill_in(:forename, with: 'Joe')

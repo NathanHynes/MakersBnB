@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'User can sign up' do
   scenario 'User can sign up' do
     visit '/'
