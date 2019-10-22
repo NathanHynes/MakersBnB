@@ -34,4 +34,13 @@ class User
     self.crypted_pass = BCrypt::Password.create(password)
   end
 
+  def self.authenticate(username:, password:)
+    user = first(username: username)
+    if user && BCrypt::Password.new(user.crypted_pass) == password
+      user
+    else
+      nil
+    end
+  end
+
 end 

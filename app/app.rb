@@ -25,6 +25,18 @@ class MakersBnB < Sinatra::Base
     
   end
 
+  post '/sessions' do 
+    user = User.authenticate(username: params[:username_login], password: params[:password_login])
+    p user
+      if user 
+        session[:user_id] = user.id
+        redirect '/listings'
+      else 
+        flash[:alert] = "Username or Password do not match database"
+        redirect '/'
+      end
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
 

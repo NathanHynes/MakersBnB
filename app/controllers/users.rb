@@ -4,7 +4,7 @@ class MakersBnB < Sinatra::Base
   post '/users' do
     user = User.create(
       forename: params[:forename],
-      surname: params[:surename],
+      surname: params[:surname],
       email: params[:email],
       username: params[:username],
       password: params[:password],
@@ -12,7 +12,7 @@ class MakersBnB < Sinatra::Base
     if user.save
       session[:user_id] = user.id
     else
-      flash[:notice] = user.errors.full_messages
+      flash[:notice] = user.errors.full_messages  
     end
     redirect '/listings'
   end
