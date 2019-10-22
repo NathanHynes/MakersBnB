@@ -83,7 +83,7 @@ I want to be able to see avialble spaces to rent
 - Table: Availability  
 | id | listing_id | start_date | end_date | 
 
-- knows about: Listings, Bookings  
+- knows about: Listings, Bookings, Booking_requests 
 
 ------
 - Table: Booking_Requests  
