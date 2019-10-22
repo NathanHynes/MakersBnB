@@ -25,5 +25,5 @@ class MakersBnB < Sinatra::Base
 end
 
 # AT BOTTOM OF THIS FILE :
-# require_relative all controllers
+require_relative "controllers/listings"
 # ie controllers/users
