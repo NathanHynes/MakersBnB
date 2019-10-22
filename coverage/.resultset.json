@@ -4,12 +4,28 @@
       "/Users/student/Projects/MakersBnB/spec/features/test_spec.rb": [
         1,
         1,
-        0,
-        0,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/student/Projects/MakersBnB/spec/models/listing_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
         null,
         null
       ]
     },
-    "timestamp": 1571673582
+    "timestamp": 1571734499
   }
 }

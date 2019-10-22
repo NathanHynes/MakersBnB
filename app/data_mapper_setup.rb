@@ -3,6 +3,7 @@ require 'dm-postgres-adapter'
 require 'sinatra/partial'
 require 'dm-validations'
 require 'dm-timestamps'
+require_relative 'models/listing'
 
 # require_relative all models ie 'models/user'
 
