@@ -20,9 +20,6 @@ class MakersBnB < Sinatra::Base
     erb :index
   end
 
-  get '/listings' do
-  end
-
   post '/sessions' do
     user = User.authenticate(username: params[:username_login], password: params[:password_login])
     p user
@@ -32,6 +29,18 @@ class MakersBnB < Sinatra::Base
     else
       flash[:alert] = 'Username or Password do not match database'
       redirect '/'
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:success] = 'You have signed out.'
+    redirect'/'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
