@@ -14,5 +14,6 @@ property :cost, Integer, :required => true, :messages => {
 }
 
 belongs_to :user
+has n, :bookingrequests
 
 end
