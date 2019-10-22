@@ -22,16 +22,16 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listings' do
-    
+
   end
 
-  post '/sessions' do 
+  post '/sessions' do
     user = User.authenticate(username: params[:username_login], password: params[:password_login])
     p user
-      if user 
+      if user
         session[:user_id] = user.id
         redirect '/listings'
-      else 
+      else
         flash[:alert] = "Username or Password do not match database"
         redirect '/'
       end
