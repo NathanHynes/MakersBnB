@@ -17,8 +17,12 @@ class MakersBnB < Sinatra::Base
   enable :partial_underscores
 
 
-  get '/test' do
-    erb  :'index'
+  get '/' do
+    erb:index
+  end
+
+  get '/listings' do
+    
   end
 
   run! if app_file == $PROGRAM_NAME
@@ -27,3 +31,4 @@ end
 # AT BOTTOM OF THIS FILE :
 # require_relative all controllers
 # ie controllers/users
+require_relative 'controllers/users'
