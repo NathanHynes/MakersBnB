@@ -4,7 +4,7 @@ We would like a web application that allows users to list spaces they have avail
 
 -------
 
-## User Stories MVP
+## User Stories MVP -1
 ```
 As a user
 I want to be able to sign up to MakersBnB.
@@ -19,14 +19,34 @@ As a user
 I want to be able to see avialble spaces to rent
 ```
 -----
+## User Stories MVP -2
+```
+  As a property owner
+  I can specify a fixed time period that my property is available throughout
 
-## MVP Model
+  As a renter I can see all dates that the owner
+  has specified that the property is avialble throughout
+
+  As a renter
+  I can select a request to stay in a property for a single night
+
+  As a property owner
+  I can view all rental requests for my property/properties?
+
+  As a renter
+  I can see which dates have already been been booked up
+  for a given property.
+  ```
+
+
+
+
+## MVP Model -1
 ### Views
 - Log in page - homepage
 - Sign up page
 - list of available spaces.
 - new listing page.
-
 -----
 
 ### Features:
@@ -56,11 +76,14 @@ I want to be able to see avialble spaces to rent
 - Table: Users  
 | id | email | user_name | first_name | last_name | password (encrypted) |  
 
+- Table: Requests  
+| id | listing_id | user_id | requested_date | 
+
 ------
 
 ### Class Diagram
 
-|MakersBnB| - > | User | -> | Listing |  
+|MakersBnB| - > | User | -> | Listing | -> Requests
 
 ------
 
