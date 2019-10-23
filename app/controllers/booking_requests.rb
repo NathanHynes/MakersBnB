@@ -10,7 +10,8 @@ class MakersBnB < Sinatra::Base
 
   get '/bookings' do
     @my_listings = Listing.all(user_id: current_user.id)
-    p @my_listings
+    # user = @my_listings.bookingrequests.user
+    # p user.username
     erb :'bookings/bookings'
   end
 
