@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Chitter</title>
+    <title>MakersBnb</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script>
@@ -14,20 +14,78 @@
     </script>
 
     <style>
-      .sign_up {
-        float: left;
-        margin-right: 47px;
-      }
-      .peeps {
-        float: right;
+
+      #page-container {
         position: relative;
-        bottom: 20px;
+        min-height: 100vh;
       }
+      #content-wrap {
+        padding-bottom: 4rem;
+      }
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 65px;
+        padding-left: 10px;
+        padding-right: 10px;
+        position: fixed;
+        background-color: #F2F7FE;
+        width: 100%;
+        top: 4px;
+        left: -2px;
+        z-index: 10;
+      }
+
+      #nav-logo {
+        height: 69px;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        width: 300px;
+        padding-right: 10px;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: black;
+      }
+
+      #main-img {
+        margin-top: 20px;
+      }
+
+      .sign-out {
+        float: right;
+        padding-left: 20px;
+        padding-top: 30px;
+        position: relative;
+        left: 185px;
+      }
+
+      .welcome {
+        float: right;
+        padding-top: 30px;
+      }
+
+      .main-body {
+        margin-top: 89px;
+      }
+
     </style>
   </head>
   <body>
-    <%= partial :flash %>
-    <%= partial :header %>
-    <%= yield %>
+    <div id="page-container">
+      <div id="content-wrap">
+        <%= partial :header %>
+        <div class="main-body">
+        <%= partial :flash %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

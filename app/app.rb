@@ -33,3 +33,4 @@ end
 require_relative 'controllers/listings'
 require_relative 'controllers/sessions'
 require_relative 'controllers/users'
+require_relative 'controllers/booking_requests'

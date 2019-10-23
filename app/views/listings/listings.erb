@@ -4,6 +4,7 @@
 <h2>Listings</h2>
 <ul
 <% @listings.each do |listing| %>
+
  <p>
  Property name: <%= listing.name %> --- Property description: <%= listing.description %> ---
  Cost per night: <%= listing.cost %> ---  Available from: <%= listing.date_from %> ---  Available to: <%= listing.date_to %>
@@ -19,5 +20,6 @@
 <form action="/listings/new" method="get">
   <input type="submit" value="New Listing">
 </form>
+
 </body>
 </html>

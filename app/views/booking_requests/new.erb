@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+
+  <body>
+    <h1>
+      <%= @listing.name %>
+    </h1>
+    <h2>Please Book your date:</h2>
+
+    <form action="/bookingrequests" method="post">
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
+      <input type="date" name="date"/>
+      <input type="submit" value="Submit"/>
+    </form>
+
+  </body>
+</html>

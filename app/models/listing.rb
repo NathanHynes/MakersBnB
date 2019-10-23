@@ -20,5 +20,6 @@ property :date_to, Date, :required => true, :messages => {
 }
 
 belongs_to :user
+has n, :bookingrequests
 
 end

@@ -1,6 +1,6 @@
 require 'bcrypt'
 
-class User 
+class User
   include DataMapper::Resource
 
   attr_accessor :password
@@ -28,6 +28,7 @@ class User
   property :crypted_pass, String, :length => 60..60, :required => true, :writer => :protected
 
   has n, :listings
+  has n, :bookingrequests
 
   def password=(password)
     @password = password
@@ -43,4 +44,4 @@ class User
     end
   end
 
-end 
+end
