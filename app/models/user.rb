@@ -29,6 +29,7 @@ class User
 
   has n, :listings
   has n, :bookingrequests
+  has n, :Approvedrequests
 
   def password=(password)
     @password = password
