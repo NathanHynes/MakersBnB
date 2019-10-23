@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h2>Listings</h2>
-<ul
-<% @listings.each do |listing| %>
+  <body>
+    <h2>Featured Properties:</h2>
+    <div class="parent">
+      <% @listings.each do |listing| %>
 
- <p>
- Property name: <%= listing.name %> --- Property description: <%= listing.description %> ---
- Cost per night: <%= listing.cost %> ---  Available from: <%= listing.date_from %> ---  Available to: <%= listing.date_to %>
- </p>
- <p>
-   Property owner: <%= listing.user.username%>
- </p>
- <br>
- <form action="/booking_requests/<%=listing.id%>/new">
-   <input type="submit" value="Make a Booking">
- </form>
- <br>
-<% end %>
+        <div class="listings">
+          <div class="listing-name">
+            <p>Property name:
+              <%= listing.name %></p>
+          </div>
+          <div class="listing-description">
+            <p>Property description:
+              <%= listing.description %></p>
+            <p>Cost per night:
+              <%= listing.cost %></p>
+            Available from:
+            <%= listing.date_from %>
+            --- Available to:
+            <%= listing.date_to %>
+          </div>
+          <a id='booking-link' href="/booking_requests/<%=listing.id%>/new"><span class = 'booking-link'></span></a>
+        </div>
+        <br>
+      <% end %>
+    </div>
+    <form action="/listings/new" method="get">
+      <input type="submit" value="New Listing">
+    </form>
 
-</ul>
-<form action="/listings/new" method="get">
-  <input type="submit" value="New Listing">
-</form>
-
-</body>
+  </body>
 </html>
