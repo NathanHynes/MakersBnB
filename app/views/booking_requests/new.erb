@@ -8,7 +8,8 @@
     </h1>
     <h2>Please Book your date:</h2>
 
-    <form action="/create" method="post">
+    <form action="/bookingrequests" method="post">
+      <input type="hidden" name="listing_id" value="<%= @listing.id %>">
       <input type="date" name="date"/>
       <input type="submit" value="Submit"/>
     </form>
