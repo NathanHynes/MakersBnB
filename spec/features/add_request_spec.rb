@@ -3,9 +3,10 @@ feature 'booking request' do
     user_sign_up
     create_listing
     user_log_out
+    expect(page).to have_content 'You have signed out.'
     user2_sign_up
     click_button 'Make a Booking'
-    fill_in :date, with: 24/10/2019
+    fill_in :date, with: '2019-10-24'
     click_button 'Submit'
     expect(page).to have_content 'Moe has sent booking request to JoeBloggs'
   end

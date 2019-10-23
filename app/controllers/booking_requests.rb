@@ -10,8 +10,14 @@ class MakersBnB < Sinatra::Base
   post '/bookingrequests' do
     booking = Bookingrequest.create(requested_date: params[:date], listing_id: params[:listing_id], user_id: current_user.id)
     p booking.save
-    p booking
-    redirect '/listings'
+    if booking.save
+      listing = Listing.get(booking.listing_id)
+      owner = User.get(listing.user_id)
+      flash[:success] = "#{current_user.username} has sent booking request to #{owner.username}"
+    else
+      flash[:alert] = 'unsuccesful booking'
+    end
+      redirect '/listings'
   end
 
 end
