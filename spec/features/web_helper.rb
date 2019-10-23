@@ -36,9 +36,11 @@ end
 
 def create_listing
   visit "/listings"
-  click_button 'create new listing'
+  click_button 'New Listing'
   fill_in('name', with: "Sids bungalow")
   fill_in('description', with: "Sid loves his bungalow")
   fill_in('cost', with: "500")
+  fill_in('date_from', with: "2019-12-01")
+  fill_in('date_to', with: "2019-12-30")
   click_button "Submit"
 end

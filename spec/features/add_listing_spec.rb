@@ -2,17 +2,6 @@ feature "Adding a new listing" do
 
   scenario "Add a new listing and view it in on the listings page" do
     user_sign_up
-
-    visit "/listings"
-    click_button 'New Listing'
-    expect(current_path).to eq "/listings/new"
-    fill_in('name', with: "Sids bungalow")
-    fill_in('description', with: "Sid loves his bungalow")
-    fill_in('cost', with: "500")
-    fill_in('date_from', with: "2019-12-01")
-    fill_in('date_to', with: "2019-12-30")
-    click_button "Submit"
-
     create_listing
 
     expect(current_path).to eq "/listings"

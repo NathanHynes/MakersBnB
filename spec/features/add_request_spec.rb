@@ -1,5 +1,5 @@
 feature 'booking request' do
-  scenario 'user request a listing' do
+  scenario 'user requests a listing' do
     user_sign_up
     create_listing
     user_log_out
