@@ -16,4 +16,7 @@ class MakersBnB < Sinatra::Base
     redirect '/listings'
    end
 
+   get '/request' do 
+    erb :'listings/request'
+   end 
 end
