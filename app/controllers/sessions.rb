@@ -2,7 +2,7 @@ class MakersBnB < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(username: params[:username_login], password: params[:password_login])
-    p user
+    # p user
     if user
       session[:user_id] = user.id
       redirect '/listings'

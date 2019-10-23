@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Your Requests</h2>
+<ul
+<% @my_listings.each do |listing| %>
+
+ <p>
+ Property name: <%= listing.name %>
+ </p>
+ <br>
+<% end %>
+
+</ul>
+
+</body>
+</html>
