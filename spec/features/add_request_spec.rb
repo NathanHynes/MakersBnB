@@ -4,7 +4,7 @@ feature 'booking request' do
     create_listing
     user_log_out
     user2_sign_up
-    click_button 'Request'
+    click_button 'Make a Booking'
     fill_in :date, with: 24/10/2019
     click_button 'Submit'
     expect(page).to have_content 'Moe has sent booking request to JoeBloggs'
