@@ -13,6 +13,9 @@
    Property owner: <%= listing.user.username%>
  </p>
  <br>
+ <form action="/booking_requests/<%=listing.id%>/new">
+   <input type="submit" value="Make a Booking">
+ </form>
  <br>
 <% end %>
 
