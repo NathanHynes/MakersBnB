@@ -33,6 +33,14 @@ class MakersBnB < Sinatra::Base
     def get_listing(id)
       @test = Listing.get(id)
     end
+
+    def get_booked_dates(listing)
+      arr = []
+      listing.Approvedrequests.each do |date|
+        arr << date_format(date.date_of_stay)
+      end
+      return arr
+    end
   end
 
   run! if app_file == $PROGRAM_NAME

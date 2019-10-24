@@ -8,15 +8,13 @@ class MakersBnB < Sinatra::Base
 
   get '/bookings' do
     @my_listings = Listing.all(user_id: current_user.id)
-    # user = @my_listings.bookingrequests.user
-    # p user.username
     erb :'bookings/bookings'
   end
 
   get '/listings/:id' do
     listing = Listing.get(params[:id])
-
-    { 'dateFrom': listing.date_from, 'dateTo': listing.date_to }.to_json
+    booked_dates = get_booked_dates(listing)
+    { 'dateFrom': listing.date_from, 'dateTo': listing.date_to, 'bookedDates': booked_dates  }.to_json
   end
 
   post '/bookingrequests' do
@@ -35,14 +33,14 @@ class MakersBnB < Sinatra::Base
   post '/bookings' do
     Approvedrequest.create(date_of_stay: params[:requested_date], listing_id: params[:listing_id], user_id: params[:user_id])
     Bookingrequest.get(params[:request_id]).destroy
-    
+
     redirect '/bookings'
   end
 
   delete '/bookings/:id' do
     Bookingrequest.get(params[:id]).destroy
     redirect '/bookings'
-    
+
   end
 
 end
