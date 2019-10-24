@@ -3,7 +3,6 @@ class MakersBnB < Sinatra::Base
 
   get '/listings' do
     @listings = Listing.all
-    @user = session[:user_id].nil?
     erb :'listings/listings'
   end
 

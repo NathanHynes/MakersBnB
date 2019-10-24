@@ -24,7 +24,7 @@
         <br>
       <% end %>
     </div>
-    <% unless @user %>
+    <% if current_user %>
     <form action="/listings/new" method="get">
       <input type="submit" value="New Listing">
     </form>
