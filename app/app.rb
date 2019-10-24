@@ -41,6 +41,18 @@ class MakersBnB < Sinatra::Base
       end
       return arr
     end
+
+    def date_available(date)
+      approved = Approvedrequest.first(:date_of_stay => date)
+      approved.nil?
+    end
+
+    def save_booking(booking)
+        listing = Listing.get(booking.listing_id)
+        # p booking.listing.user
+        owner = User.get(listing.user_id)
+        flash[:success] = "#{current_user.username} has sent booking request to #{owner.username}"
+    end
   end
 
   run! if app_file == $PROGRAM_NAME
