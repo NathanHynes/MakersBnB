@@ -24,8 +24,10 @@
         <br>
       <% end %>
     </div>
+    <% if current_user %>
     <form action="/listings/new" method="get">
       <input type="submit" value="New Listing">
     </form>
+    <% end %>
   </body>
 </html>

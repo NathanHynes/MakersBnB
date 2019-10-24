@@ -33,8 +33,12 @@
                 </div>
             </div>
             <center>
-              <input type="submit" class="btn btn-primary" value="Submit">
-              </center>
+              <% if current_user %>
+                <input type="submit" class="btn btn-primary" value="Submit">
+              <% else %>
+                <p>Please Sign in to book.</p>
+              <% end %>
+            </center>
           </div>
        </div>
     </div>

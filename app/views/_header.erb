@@ -12,9 +12,10 @@
     <ul class="nav-list">
       <a class="nav-link" href="/"><li>Homepage</li></a>
       <a class="nav-link" href="/listings"><li>Listings</li></a>
-      <a class="nav-link" href="/bookings"><li>Bookings</li></a>
-      <a class="nav-link" href="/mystays"><li>My Stays</li></a>
-
+      <% if current_user  %>
+        <a class="nav-link" href="/bookings"><li>Bookings</li></a>
+        <a class="nav-link" href="/mystays"><li>My Stays</li></a>
+      <% end %>
     </ul>
   </div>
 </nav>
