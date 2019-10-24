@@ -3,13 +3,13 @@
 <body>
 <h2>Booking Requests For Your Properties</h2>
   <% @my_listings.each do |listing| %>
-
   <p>
   Property name: <%= listing.name %>
   </p>
   <br>
     <ul>
       <% listing.bookingrequests.each do |request| %>
+
         <li><%= request.user.forename%> <%= request.user.surname%>
             ----- <%= request.requested_date%><br>
             message from <%= request.user.forename%> : <%= request.message%>
