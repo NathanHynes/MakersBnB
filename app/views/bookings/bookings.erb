@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2>Your Requests</h2>
-<ul
-<% @my_listings.each do |listing| %>
+<h2>Booking Requests For Your Properties</h2>
+  <% @my_listings.each do |listing| %>
 
- <p>
- Property name: <%= listing.name %>
- </p>
- <br>
-<% end %>
+  <p>
+  Property name: <%= listing.name %>
+  </p>
+  <br>
+    <ul>
+      <% listing.bookingrequests.each do |request| %>
+        <li><%= request.user.forename%> <%= request.user.surname%>
+            ----- <%= request.requested_date%>
+        </li class='requests'>
+        <div class="approve">
+        <form action="/bookings" method="post">
+          <input class='tick' type="submit" name="Accept" value=&#10003;>
+        </form>
+        <form action="/bookings" method="post">
+          <input class = 'cross' type="submit" name="Reject" value=&#10005;>
+        </form>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
 
-</ul>
+
+  
 
 </body>
 </html>
