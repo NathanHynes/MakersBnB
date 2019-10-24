@@ -35,4 +35,13 @@ class MakersBnB < Sinatra::Base
       redirect '/listings'
   end
 
+  post '/bookings' do
+    result = Approvedrequest.create(date_of_stay: params[:requested_date], listing_id: params[:listing_id], user_id: params[:user_id])
+    p result
+    request = Bookingrequest.get(params[:request_id])
+    p request
+    p request.destroy
+    redirect '/bookings'
+  end
+
 end
