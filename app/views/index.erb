@@ -41,4 +41,18 @@
   </div>
   <% end %>
 </body>
+
+<script>
+  $(document).ready(function() {
+    // console.log("hello")
+      $.get('/test', function(object) {
+        // obj = JSON.parse(data)
+        // console.log(obj)
+        // console.log(obj.date_from)
+        // console.log(obj.date_to)
+        // console.log("obj is defined above")
+        console.log(object)
+      });
+      });
+</script>
 </html>

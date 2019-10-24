@@ -2,12 +2,6 @@ class MakersBnB < Sinatra::Base
 
   get '/booking_requests/:id/new' do
     @listing = Listing.get(params[:id])
-    # p @listing
-    # p @listing.date_from
-    # @datefrom = date_format(@listing.date_from)
-    # p @datefrom
-    # @dateto = date_format(@listing.date_to)
-    # p @dateto
     erb :'booking_requests/request'
   end
 
@@ -18,8 +12,10 @@ class MakersBnB < Sinatra::Base
     erb :'bookings/bookings'
   end
 
-  get '/test' do
-    erb :'booking_requests/test2'
+  get '/listings/:id' do
+    listing = Listing.get(params[:id])
+
+    { 'dateFrom': listing.date_from, 'dateTo': listing.date_to }.to_json
   end
 
   post '/bookingrequests' do

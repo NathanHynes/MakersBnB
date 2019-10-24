@@ -8,51 +8,71 @@
   </head>
   <body>
     <form action="/bookingrequests" method="post">
-      <div class="container">
-        <div class="panel panel-primary">
-          <div class="panel-heading">REQUEST A BOOKING</div>
+    <div class="container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">REQUEST A BOOKING</div>
           <div class="panel-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Message</label>
-                  <input type="text" class="form-control" name="message">
+             <div class="row">
+                <div class="col-md-6">
+                   <div class="form-group">
+                     <input type="hidden" id='listingID' name="listing_id" value="<%= @listing.id %>">
+                      <label class="control-label">Message</label>
+                      <input type="text" class="form-control" name='message'>
+                   </div>
                 </div>
-              </div>
-              <div class='col-md-6'>
-                <div class="form-group">
-                  <label class="control-label">Appointment Time</label>
-                  <div class='input-group date' id='datetimepicker1'>
-                    <input type="hidden" name="listing_id" value="<%= @listing.id %>">
-                    <input type='date' name="date" min="<%=@listing.date_from%>" max="<%=@listing.date_to%>" class="form-control"/>
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                    <center>
-                      <input type="submit" class="btn btn-primary" value="Submit">
-                    </center>
-
-                  </div>
+                <div class='col-md-6'>
+                   <div class="form-group">
+                      <label class="control-label">Booking Date</label>
+                      <div class='input-group date' id='datetimepicker1'>
+                         <input type='text' class="form-control" name='date' />
+                         <span class="input-group-addon">
+                         <span class="glyphicon glyphicon-calendar"></span>
+                         </span>
+                      </div>
+                   </div>
                 </div>
-              </div>
             </div>
-
+            <center>
+              <input type="submit" class="btn btn-primary" value="Submit">
+              </center>
           </div>
-        </div>
-      </div>
+       </div>
+    </div>
     </form>
-    <%# <script>
-  $(function () {
-    $('#datetimepicker1').datetimepicker({minDate:'2019/12/03', maxDate:'2019/12/24'});
- });
-</script> %>
 
-      <%# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script> %>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script>
 
-      </body>
-    </html>
+      $(document).ready(function() {
+        let listingID = $('#listingID').val();
+
+        $.get(`/listings/${listingID}`, function(rawResponse) {
+          let dates = JSON.parse(rawResponse)
+          let date_from = dates['dateFrom']
+          let date_to = dates['dateTo']
+
+          $(function () {
+            $('#datetimepicker1').datetimepicker({
+              format: 'DD/MM/YYYY',
+              minDate: date_from,
+              maxDate: date_to,
+              disabledDates: [
+               '2019/05/04',
+                '2019/05/05'
+                ]
+          });
+        });
+      });
+      });
+    </script>
+
+    <!-- <script src='./app/interface.js'></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  </body>
+</html>
