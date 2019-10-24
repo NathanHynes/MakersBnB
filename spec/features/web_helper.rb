@@ -29,6 +29,13 @@ def user_log_in
   click_button 'Log In'
 end
 
+def user2_log_in
+  visit '/'
+  fill_in(:username_login, with: 'Moe')
+  fill_in(:password_login, with: 'password1234')
+  click_button 'Log In'
+end
+
 def user2_sign_up
   visit '/'
   fill_in(:forename, with: 'Moe')
