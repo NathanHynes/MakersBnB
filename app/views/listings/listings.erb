@@ -6,28 +6,30 @@
       <% @listings.each do |listing| %>
         <div class="listings">
           <div class="listing-name">
-            <p>Property name:
-              <%= listing.name %></p>
+            <h1><%= listing.name %></h1>
           </div>
           <div class="listing-description">
-            <p>Property description:
-              <%= listing.description %></p>
-            <p>Cost per night:
-              <%= listing.cost %></p>
+            <p>Property description:<span><%= listing.description %></span></p>
+          </div>
+          <div class="listing-cost">
+            <p><b>Cost per night:</b><%= listing.cost %></p>
+          </div>
+          <div class="listing-dates">
             Available from:
             <%= listing.date_from %>
             --- Available to:
             <%= listing.date_to %>
           </div>
-          <a id='booking-link' href="/booking_requests/<%=listing.id%>/new"><span class = 'booking-link'></span></a>
+          <a id='booking-link' href="/booking_requests/<%=listing.id%>/new">
+            <span class='booking-link'></span></a>
         </div>
         <br>
       <% end %>
     </div>
     <% if current_user %>
-    <form action="/listings/new" method="get">
-      <input type="submit" value="New Listing">
-    </form>
+      <form action="/listings/new" method="get">
+        <input type="submit" value="New Listing">
+      </form>
     <% end %>
   </body>
 </html>
