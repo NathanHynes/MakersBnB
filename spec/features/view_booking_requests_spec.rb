@@ -17,7 +17,7 @@ feature "Viewing booking requests" do
     expect(page).to have_content "Sids bungalow"
   end
 
-  scenario "See all requests of per each of owners listing" do
+  scenario "See all request for each individual listing" do
     user_sign_up
     create_listing
     user_log_out
@@ -25,15 +25,19 @@ feature "Viewing booking requests" do
     user2_sign_up
     create_listing_two
     first('.listings').click_link 'booking-link'
+    fill_in :message, with: 'Can I stay here'
     fill_in :date, with: '2019-10-24'
     click_button 'Submit'
     user_log_out
     user_log_in
     click_link "Bookings"
     expect(page).to have_content "Moe Szyslak"
+    expect(page).to have_content 'Can I stay here'
     expect(page).to have_button "Accept"
     expect(page).to have_button "Reject"
   end
+
+
 
 
 end

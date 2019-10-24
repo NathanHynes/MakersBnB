@@ -11,7 +11,8 @@
     <ul>
       <% listing.bookingrequests.each do |request| %>
         <li><%= request.user.forename%> <%= request.user.surname%>
-            ----- <%= request.requested_date%>
+            ----- <%= request.requested_date%><br>
+            message from <%= request.user.forename%> : <%= request.message%>
         </li class='requests'>
         <div class="approve">
         <form action="/bookings" method="post">
@@ -26,7 +27,7 @@
   <% end %>
 
 
-  
+
 
 </body>
 </html>
