@@ -1,4 +1,5 @@
 class MakersBnB < Sinatra::Base
+  enable :method_override
 
   get '/booking_requests/:id/new' do
     @listing = Listing.get(params[:id])
@@ -33,6 +34,19 @@ class MakersBnB < Sinatra::Base
       flash[:alert] = 'unsuccessful booking'
     end
       redirect '/listings'
+  end
+
+  post '/bookings' do
+    Approvedrequest.create(date_of_stay: params[:requested_date], listing_id: params[:listing_id], user_id: params[:user_id])
+    Bookingrequest.get(params[:request_id]).destroy
+    
+    redirect '/bookings'
+  end
+
+  delete '/bookings/:id' do
+    Bookingrequest.get(params[:id]).destroy
+    redirect '/bookings'
+    
   end
 
 end
