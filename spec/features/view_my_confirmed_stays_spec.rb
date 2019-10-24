@@ -8,6 +8,5 @@ feature "A user can see the status of their requests to stay at a property" do
     click_link 'My Stays'
     expect(current_path).to eq "/mystays"
     expect(page).to have_content 'Sids bungalow'
-
   end
 end

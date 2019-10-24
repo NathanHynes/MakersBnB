@@ -8,10 +8,9 @@ feature "Listings page" do
       :username => 'JoeBloggs',
       :password => 'password123'
     )
-    listing_one = Listing.create(:name =>'Nabilles house', :description => "Nabilles big house", :cost => 2000,
+    Listing.create(:name =>'Nabilles house', :description => "Nabilles big house", :cost => 2000,
     :date_from => '2019-12-01', :date_to => '2019-12-30', :user_id => user.id )
     visit '/listings'
-    p listing_one
     expect(page).to have_content "Nabilles house"
     expect(page).to have_content "Nabilles big house"
     expect(page).to have_content "2000"
@@ -25,8 +24,8 @@ feature "Listings page" do
       :username => 'JoeBloggs',
       :password => 'password123'
     )
-    listing_one = Listing.create(:name =>'Nabilles house', :description => "Nabilles big house", :cost => 2000, :user_id => user.id, :date_from => '2019-12-01', :date_to => '2019-12-30' )
-    listing_two = Listing.create(:name =>'Joshs house', :description => "Joshs tiny house", :cost => 250, :date_from => '2019-12-01', :date_to => '2019-12-30', :user_id => user.id )
+    Listing.create(:name =>'Nabilles house', :description => "Nabilles big house", :cost => 2000, :user_id => user.id, :date_from => '2019-12-01', :date_to => '2019-12-30' )
+    Listing.create(:name =>'Joshs house', :description => "Joshs tiny house", :cost => 250, :date_from => '2019-12-01', :date_to => '2019-12-30', :user_id => user.id )
     visit '/listings'
     expect(page).to have_content "Nabilles house"
     expect(page).to have_content "Nabilles big house"
