@@ -17,6 +17,10 @@ class MakersBnB < Sinatra::Base
     erb :'bookings/bookings'
   end
 
+  get '/test' do
+    erb :'booking_requests/test2'
+  end
+
   post '/bookingrequests' do
     booking = Bookingrequest.create(requested_date: params[:date], message: params[:message], listing_id: params[:listing_id], user_id: current_user.id)
     if booking.save
