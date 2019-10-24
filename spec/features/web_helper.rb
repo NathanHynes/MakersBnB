@@ -29,6 +29,13 @@ def user_log_in
   click_button 'Log In'
 end
 
+def user2_log_in
+  visit '/'
+  fill_in(:username_login, with: 'Moe')
+  fill_in(:password_login, with: 'password1234')
+  click_button 'Log In'
+end
+
 def user2_sign_up
   visit '/'
   fill_in(:forename, with: 'Moe')
@@ -66,3 +73,19 @@ def create_listing_two
   fill_in('date_to', with: "2019-12-30")
   click_button "Submit"
 end
+
+def view_booking_requests
+  user_sign_up
+  create_listing
+  user_log_out
+  expect(page).to have_content 'You have signed out.'
+  user2_sign_up
+  create_listing_two
+  first('.listings').click_link 'booking-link'
+  fill_in :date, with: '2019-10-24'
+  click_button 'Submit'
+  user_log_out
+  user_log_in
+  click_link "Bookings"
+end
+

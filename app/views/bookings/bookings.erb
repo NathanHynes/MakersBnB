@@ -16,9 +16,14 @@
         </li class='requests'>
         <div class="approve">
         <form action="/bookings" method="post">
+          <input type="hidden" name="requested_date" value="<%= request.requested_date %>">
+          <input type="hidden" name="listing_id" value="<%= listing.id %>">
+          <input type="hidden" name="user_id" value="<%= request.user.id %>">
+          <input type="hidden" name="request_id" value="<%= request.id %>">
           <input class='tick' type="submit" name="Accept" value=&#10003;>
         </form>
-        <form action="/bookings" method="post">
+        <form action="/bookings/<%= request.id %>" method="post">
+          <input type='hidden' name='_method' value='delete'/>
           <input class = 'cross' type="submit" name="Reject" value=&#10005;>
         </form>
         </div>
