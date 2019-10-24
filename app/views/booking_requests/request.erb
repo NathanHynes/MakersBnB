@@ -46,19 +46,18 @@
         let listingID = $('#listingID').val();
 
         $.get(`/listings/${listingID}`, function(rawResponse) {
+          console.log(rawResponse)
           let dates = JSON.parse(rawResponse)
           let date_from = dates['dateFrom']
           let date_to = dates['dateTo']
+          let booked_dates = dates['bookedDates']
 
           $(function () {
             $('#datetimepicker1').datetimepicker({
               format: 'DD/MM/YYYY',
               minDate: date_from,
               maxDate: date_to,
-              disabledDates: [
-               '2019/05/04',
-                '2019/05/05'
-                ]
+              disabledDates: booked_dates
           });
         });
       });
