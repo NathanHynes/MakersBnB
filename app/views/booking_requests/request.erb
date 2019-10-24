@@ -32,11 +32,13 @@
                    </div>
                 </div>
             </div>
-            <% if current_user %>
-              <center> 
+            <center>
+              <% if current_user %>
                 <input type="submit" class="btn btn-primary" value="Submit">
-              </center>
-            <% end %>
+              <% else %>
+                <p>Please Sign in to book.</p>
+              <% end %>
+            </center>
           </div>
        </div>
     </div>
