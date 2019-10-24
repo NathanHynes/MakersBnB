@@ -33,9 +33,13 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/bookings' do
-    Approvedrequest.create(date_of_stay: params[:requested_date], listing_id: params[:listing_id], user_id: params[:user_id])
+    approved = Approvedrequest.create(date_of_stay: params[:requested_date], listing_id: params[:listing_id], user_id: params[:user_id])
+    if approved.save
     Bookingrequest.get(params[:request_id]).destroy
     
+    else
+      flash[:notice] = approved.errors.full_messages
+    end
     redirect '/bookings'
   end
 

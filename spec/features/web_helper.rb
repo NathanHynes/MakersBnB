@@ -47,6 +47,17 @@ def user2_sign_up
   click_button 'Sign Up'
 end
 
+def user3_sign_up
+  visit '/'
+  fill_in(:forename, with: 'Tom')
+  fill_in(:surname, with: 'Jones')
+  fill_in(:email, with: 'Jones@test.com')
+  fill_in(:username, with: 'tomjones')
+  fill_in(:password, with: 'password1234')
+  fill_in(:password_confirm, with: 'password1234')
+  click_button 'Sign Up'
+end
+
 def user_log_out
   visit '/'
   click_button 'Sign out'
@@ -87,5 +98,21 @@ def view_booking_requests
   user_log_out
   user_log_in
   click_link "Bookings"
+end
+
+def multiple_requests
+  user_sign_up
+  create_listing
+  user_log_out
+  user2_sign_up
+  first('.listings').click_link 'booking-link'
+  fill_in :date, with: '2019-10-24'
+  click_button 'Submit'
+  user_log_out
+  user3_sign_up
+  first('.listings').click_link 'booking-link'
+  fill_in :date, with: '2019-10-24'
+  click_button 'Submit'
+  user_log_out
 end
 
