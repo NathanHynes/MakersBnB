@@ -24,6 +24,10 @@ class MakersBnB < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def date_format(date)
+      date.strftime("%Y/%m/%d")
+    end
   end
 
   run! if app_file == $PROGRAM_NAME
