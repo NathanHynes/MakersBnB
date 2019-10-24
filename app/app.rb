@@ -2,6 +2,7 @@
 
 ENV['RACK_ENV'] ||= 'development'
 
+require 'json'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
@@ -27,6 +28,10 @@ class MakersBnB < Sinatra::Base
 
     def date_format(date)
       date.strftime("%Y/%m/%d")
+    end
+
+    def get_listing(id)
+      @test = Listing.get(id)
     end
   end
 

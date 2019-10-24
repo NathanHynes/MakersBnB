@@ -20,5 +20,6 @@ class MakersBnB < Sinatra::Base
       user_id: current_user.id 
     )
     redirect '/listings'
-   end
+  end
+
 end
