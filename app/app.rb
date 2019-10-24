@@ -49,8 +49,10 @@ class MakersBnB < Sinatra::Base
 
     def save_booking(booking)
         listing = Listing.get(booking.listing_id)
+        p listing
         # p booking.listing.user
         owner = User.get(listing.user_id)
+        p owner
         flash[:success] = "#{current_user.username} has sent booking request to #{owner.username}"
     end
   end
