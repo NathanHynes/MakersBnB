@@ -1,133 +1,148 @@
 # MakersBnB
 
-We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
+  A web application that allows users to rent out and book available properties at a nightly cost.
 
 -------
-
-## User Stories MVP -1
+## User Stories
 ```
-As a user
-I want to be able to sign up to MakersBnB.
+MVP
 
-As a user
-I want to be able to log in to Makers BnB
+  As a new user
+  so that I can save my personal details
+  I want to be able to sign up to MakersBnB.
 
-As a user
-I want to be able to list a space to rent out giving a name, description and nightly cost
-
-As a user
-I want to be able to see avialble spaces to rent
-```
------
-## User Stories MVP -2
-```
-  As a property owner
-  I can specify a fixed time period that my property is available throughout
-
-  As a renter I can see all dates that the owner
-  has specified that the property is avialble throughout
-
-  As a renter
-  I can select a request to stay in a property for a single night
+  As a user
+  so that I can return at a later date
+  I want to be able to log in to Makers BnB.
 
   As a property owner
-  I can view all rental requests for my property/properties?
+  so that I can list a property available for rent
+  I want to be able to add its name, description and nightly cost
+
+  As a holiday-maker
+  so that I can book a stay
+  I want to be able to see all available spaces to rent.
+
+Additional Features
+
+  As a property owner
+  so that I can control when my property is rented out
+  I want to specify a fixed time period when my property is available for rent.
+
+  As a holiday-maker
+  so that I can choose which property to rent
+  I want to see all the dates when a property is available.
+
+  As a holiday-maker
+  so that I can stay a night at an available property
+  I want to send a booking request to the property owner.
+
+  As a property owner
+  so that I can manage renting out my properties
+  I want to view all booking requests for my properties.
+
+  As a property owner
+  so that I can rent out my properties
+  I want to approve or decline booking requests.
+
+  As a property owner
+  so that I do not double book my properties
+  I want to view all my approved requests.
 
   As a renter
-  I can see which dates have already been been booked up
-  for a given property.
-  ```
+  So that I can pick an available property
+  I want to see which dates a property has already been been booked.
 
-
-
-
-## MVP Model 
-### Views
-- Homepage - (+ log in)
-- New User (Sign up)
-- all Listings
-- new Listing
+```
 -----
-
-### Features:
-- user can post a new listing. (CREATE)
-- user can view all listings in reverse chronological order. (READ)
+## Features:
+1. MVP
 - user can sign up for MakersBnB.
-
+- user can post a new listing. (CREATE)
+- user can view all listings. (READ)
+- user can log in and out of MakersBnB
+- guest can view all listings
+2. Additional Features
+- user can specify a properties availability
+- user can view when a property is available
+- user can make booking requests (with a comment)
+- user can view booking requests for their properties
+- user can approve or decline booking requests
+- user cannot approve a request for a date already booked
+- user can view approved bookings
+- user cannot request a booking on a date a property is already booked
+- guest access is limited to viewing listings
+- user must correctly enter their password twice on sign up
 -----
 
+### Views
+- Homepage: log in & Sign up / guest
+- Listings
+- new Listing
+- new booking request
+- bookings
+- my stays
+
+------
 ### Domain Relationships
-- ONE MakersBnB has MANY Users
-|MakersBnB|---≡|Users|  
+- ONE MakersBnB has MANY Users  
+| MakersBnB |-----≡| Users |  
 
-- ONE User has MANY listings
-|user|---≡|listings|  
+- ONE User has MANY Listings  
+| User |-----≡| Listings |  
 
-- ONE Listing has MANY Booking_Requests
-|listing|---≡|Booking_Requests| 
+- ONE Listing has MANY BookingRequests   
+| Listing |-----≡| BookingRequests |
 
+- ONE Listing has MANY ApprovedBookings  
+| Listing |-----≡| ApprovedBookings |
 ------
 
 ### Class Responsibility Collaborator (CRC) Models
 
-- Table: Listings  
-| id |  property  | description | cost | user_id |  
+TABLE: Users  
+  | id | forename | surname | email | username | password (encrypted) |     
+  has n: listings, bookingrequests, Approvedrequests
 
-- knows about: Users  
+TABLE: Listings  
+| id |  name  | description | cost | user_id |  date_from | date_to |   
+  belongs to: user  
+  has n: bookingrequests, Approvedrequests
 
-------
-- Table: Users  
-| id | email | user_name | first_name | last_name | password (encrypted) |  
+TABLE: BookingRequests  
+  | id | requested_date | listing_id | user_id | message |  
+  belongs to: listing, user
 
-------
-- Table: Availability  
-| id | listing_id | start_date | end_date | 
+TABLE: Bookings   
+  | id | listing_id | user_id | date |  
+  belongs to: listing, user   
 
-- knows about: Listings, Bookings, Booking_requests 
 
-------
-- Table: Booking_Requests  
-| id | listing_id | user_id | requested_date | 
-
-- knows about: Users, Listings  
-
-------
-- Table: Bookings   
-| id | listing_id | user_id | date | 
-
-- knows about: Users, Listings  
-
-------
-
-### Class Diagram
-
-|MakersBnB| - > | User | -> | Listing |    
-  
-| Listing | -> | Booking_Requests |  
-| Listing | -> | Availability |  
-
-------
 
  ## Technologies used:
 
 ------
 
 ------
-## How to set up the project:
+## Project Setup:
 
-## Setup
+1. Git clone this repository.
 
-Git clone this repo.
+2. Ensure __postgrl__ is installed .
 
-Make sure you have postgrl installed and run the two commands below in the terminal:
+3. run both terminal commands below:  
+  CREATE DATABASE MakersBnB_development  
+  CREATE DATABASE MakersBnB_test
 
-CREATE DATABASE MakersBnB_development
-CREATE DATABASE MakersBnB_test
-After this open the repo in your favourite editor and run bundle install to install all gem dependencies.
+4. Install all gem dependencies by running terminal command:   
+  bundle install
 
-CD into the repo and run the command rackup in the terminal.
+5. From the MakersBnB directory; run terminal command:  
+  rackup
 
-Navigate to http://localhost:9292 within your favourite browser. Enjoy!
+6. View the website by opening a Chrome browser and enter:   
+  http://localhost:9292
 
+7. Enjoy!
 
 ------
