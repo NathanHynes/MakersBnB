@@ -17,26 +17,40 @@ class MakersBnB < Sinatra::Base
       cost: params[:cost],
       date_from: params[:date_from],
       date_to: params[:date_to],
-      user_id: current_user.id
+      user_id: current_user.id,
+      image: params[:image]
     )
 
-    redirect '/listings'
-  end
+      @listing_image = listing.image
 
-  post "/test" do
+      p "this file is: #{@listing_image}"
 
-    #Create new Image Model
     img = Image.new
-    p img
+    
 
     #Save the data from the request
      img.image = params[:image] #carrierwave will upload the file automatically
 
     #Save
-    p img.save
-    redirect '/test'
+     img.save
 
+    redirect '/listings'
   end
+
+  # post "/test" do
+
+  #   #Create new Image Model
+  #   img = Image.new
+  #   p img
+
+  #   #Save the data from the request
+  #    img.image = params[:image] #carrierwave will upload the file automatically
+
+  #   #Save
+  #   p img.save
+  #   redirect '/test'
+
+  # end
 
   # get '/test' do 
   #   image = Image.last
