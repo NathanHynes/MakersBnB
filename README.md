@@ -156,8 +156,11 @@ TABLE: Bookings / Approvedrequests
       - Select database: \C MakersBnB_development;
       - view all tables: \dt;
       - view a table: SELECT * FROM table_name;
+      
+8. enter this command into the terminal:  
+  source ./sendgrid.env
 
-8. Enjoy!
+9. Enjoy!
 
 ------
 ### Authors
