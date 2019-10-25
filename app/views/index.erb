@@ -17,14 +17,14 @@
       <div class="form-wrap">
         <div class="tabs">
           <h3 class="signup-tab">
-            <a class="active" href="#signup-tab-content">Sign Up</a>
+            <a href="#signup-tab-content">Sign Up</a>
           </h3>
           <h3 class="login-tab">
-            <a class="terms" href="#login-tab-content">Login</a>
+            <a class="active" href="#login-tab-content">Login</a>
           </h3>
         </div>
         <div class="tabs-content">
-          <div id="signup-tab-content" class="active">
+          <div id="signup-tab-content">
             <form class="signup-form" action="/users" method='post'>
               <input type="text" class="input" name="forename" autocomplete="off" placeholder="Forename">
               <input type="text" class="input" name="surname" autocomplete="off" placeholder="Surname">
@@ -34,19 +34,23 @@
               <input type="password" class="input" name="password_confirm" autocomplete="off" placeholder="Password">
               <input type="submit" class="button" value="Sign Up">
             </form>
-            <div class="help-text">
-
+            <div class="guest">
               <p>
                 <a href="/listings">Continue as Guest</a>
               </p>
             </div>
           </div>
-          <div id="login-tab-content">
+          <div id="login-tab-content" class="active">
             <form class="login-form" action="/sessions" method="post">
-              <input type="text" class="input" name="username_login" autocomplete="off" placeholder="Email or Username">
+              <input type="text" class="input" name="username_login" autocomplete="off" placeholder="Username">
               <input type="password" class="input" name="password_login" autocomplete="off" placeholder="Password">
               <input type="submit" class="button" value="Log In">
             </form>
+            <div class="guest">
+              <p>
+                <a href="/listings">Continue as Guest</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

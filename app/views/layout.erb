@@ -39,14 +39,6 @@
         text-decoration: none;
       }
 
-      .terms {
-        color: #666;
-        text-decoration: none;
-      }
-
-      .terms:hover{
-        color: #4FDA8C;
-      }
 
       .home {
         background-image: url("images/background2.jpg");
@@ -77,7 +69,23 @@
         width: 100%;
         top: 4px;
         left: -2px;
-        z-index: 10;
+        z-index: 1;
+        background: inherit;
+        overflow: hidden;
+      }
+
+      #navbar:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        box-shadow: inset 0 20px 200px rgba(255, 255, 255, 0.5);
+        filter: blur(30px);
+        margin: -20px;
+        z-index: -1;
       }
 
       #nav-logo {
@@ -170,12 +178,8 @@
       } */
 
       .form-wrap {
-        background-color: #fff;
         width: 455px;
         margin: 3em auto;
-        box-shadow: 0 1px 8px #BEBEBE;
-        -webkit-box-shadow: 0 1px 8px #BEBEBE;
-        -moz-box-shadow: 0 1px 8px #BEBEBE;
       }
 
       .form-wrap .tabs {
@@ -224,20 +228,18 @@
         margin: 0 0 0.8em;
         padding-right: 2em;
         width: 100%;
+        background: inherit;
+        box-shadow: inset 0 20px 200px rgba(255, 255, 255, 0.5);
       }
 
       .form-wrap form .button {
         width: 100%;
         padding: 0.8em 0 10px 0.8em;
-        background-color: #28A55F;
+        background-color: #F7BF36;
         border: none;
-        color: #fff;
+        color: black;
         cursor: pointer;
         text-transform: uppercase;
-      }
-
-      .form-wrap form .button:hover {
-        background-color: #4FDA8C;
       }
 
       .form-wrap form .checkbox {
@@ -284,18 +286,41 @@
           transform: rotate(-45deg);
         }
 
-        .form-wrap .help-text {
+        .form-wrap .guest {
           margin-top: 0.6em;
         }
 
-        .form-wrap .help-text p {
+        .form-wrap .guest p {
           text-align: center;
           font-size: 14px;
+          color: white;
+        }
+
+        .form-wrap .guest a {
+          color: white;
         }
 
         .tabs-content {
           width: 398px;
         }
+
+        .input::placeholder {
+          color: black;
+        }
+
+
+        @-webkit-keyframes autofill {
+          to {
+            color: black;
+            background: transparent;
+          }
+        }
+
+      input:-webkit-autofill {
+        -webkit-animation-name: autofill;
+        -webkit-animation-fill-mode: both;
+      }
+
 
     </style>
   </head>
