@@ -1,6 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (6.0.0)
+      activesupport (= 6.0.0)
+    activesupport (6.0.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
@@ -16,6 +24,13 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+    carrierwave-datamapper (0.2.2)
+      carrierwave (~> 0.8.0)
+      dm-core (~> 1.1)
+    concurrent-ruby (1.1.5)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -70,12 +85,15 @@ GEM
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
+    i18n (1.7.0)
+      concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.3)
     json (1.8.6)
     json_pure (1.8.6)
     jwt (2.2.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
+    minitest (5.12.2)
     multi_json (1.14.1)
     multipart-post (2.1.1)
     mustermann (1.0.3)
@@ -140,16 +158,20 @@ GEM
     stringex (1.5.1)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    thread_safe (0.3.6)
     tilt (2.0.10)
     timecop (0.9.1)
     twilio-ruby (5.28.0)
       faraday (~> 0.9)
       jwt (>= 1.5, <= 2.5)
       nokogiri (>= 1.6, < 2.0)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
     uuidtools (2.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    zeitwerk (2.2.0)
 
 PLATFORMS
   ruby
@@ -157,6 +179,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
+  carrierwave-datamapper
   data_mapper (= 1.2.0)
   database_cleaner
   dm-postgres-adapter

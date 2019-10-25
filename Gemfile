@@ -13,6 +13,7 @@ gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'carrierwave-datamapper', :require => 'carrierwave/datamapper'
 
 group :test do
   gem 'database_cleaner'
