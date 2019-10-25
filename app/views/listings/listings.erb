@@ -2,7 +2,6 @@
 <html>
   <body>
           <div class="listing image">
-        <img src="uploads/tmp/<%=@listing_image%>" alt="">
         </div>
     <h2>Featured Properties:</h2>
     <div class="parent">
@@ -10,7 +9,7 @@
         <div class="listings">
           <div class="listing-name">
             <h1><%= listing.name %></h1>
-            <img src="<%=listing.image%>" alt="">
+            <img style='width:100px;' src="<%=listing.image%>" alt="">
           </div>
           <div class="listing-description">
             <p>Property description:<span><%= listing.description %></span></p>
