@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
   <body>
+          <div class="listing image">
+        </div>
     <h2>Featured Properties:</h2>
     <div class="parent">
       <% @listings.each do |listing| %>
         <div class="listings">
           <div class="listing-name">
             <h1><%= listing.name %></h1>
+            <img style='width:100px;' src="<%=listing.image%>" alt="">
           </div>
           <div class="listing-description">
             <p>Property description:<span><%= listing.description %></span></p>
           </div>
           <div class="listing-cost">
-            <p><b>Cost per night:</b><%= listing.cost %></p>
+            <p><b>Cost per night:</b> <span>&#163;</span><%= listing.cost %></p>
           </div>
           <div class="listing-dates">
             Available from:

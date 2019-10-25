@@ -12,7 +12,7 @@ feature 'User only features access hidden from Guest' do
     user_sign_up
     create_listing
     user_log_out
-    click_link 'Continue as Guest'
+    first('.guest').click_link 'Continue as Guest'
     expect(current_path).to eq "/listings"
     first('.listings').click_link 'booking-link'
     expect(page).to have_content "Please Sign in to book."

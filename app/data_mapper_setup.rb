@@ -7,6 +7,7 @@ require_relative 'models/user'
 require_relative 'models/booking_request'
 require_relative 'models/approved'
 require_relative 'models/listing'
+require_relative 'models/images'
 
 # require_relative all models ie 'models/user'
 
