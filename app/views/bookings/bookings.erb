@@ -20,6 +20,7 @@
           <input type="hidden" name="listing_id" value="<%= listing.id %>">
           <input type="hidden" name="user_id" value="<%= request.user.id %>">
           <input type="hidden" name="request_id" value="<%= request.id %>">
+          <input type="hidden" name="email" value="<%= request.user.email %>">
           <input class='tick' type="submit" name="Accept" value=&#10003;>
         </form>
         <form action="/bookings/<%= request.id %>" method="post">
