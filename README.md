@@ -73,6 +73,7 @@ Additional Features
 - user cannot request a booking on a date a property is already booked
 - guest access is limited to viewing listings
 - user must correctly enter their password twice on sign up
+- ... plus many more!
 -----
 
 ### Views
