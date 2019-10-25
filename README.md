@@ -109,28 +109,33 @@ TABLE: Listings
   belongs to: user  
   has n: bookingrequests, Approvedrequests
 
-TABLE: BookingRequests  
+TABLE: Bookingrequests  
   | id | requested_date | listing_id | user_id | message |  
   belongs to: listing, user
 
-TABLE: Bookings   
+TABLE: Bookings / Approvedrequests   
   | id | listing_id | user_id | date |  
   belongs to: listing, user   
 
-
-
- ## Technologies used:
-
 ------
+ ## Technologies used:
+- Postgress
+- DataMapper
+- Bcrypt
+- Sinatra
+- Json
+- RSpec
+- Capybara
 
 ------
 ## Project Setup:
 
 1. Git clone this repository.
 
-2. Ensure __postgrl__ is installed .
+2. Ensure __postgresql__ is installed:  
+  brew install postgresql
 
-3. run both terminal commands below:  
+3. run both terminal commands:  
   CREATE DATABASE MakersBnB_development  
   CREATE DATABASE MakersBnB_test
 
@@ -143,6 +148,20 @@ TABLE: Bookings
 6. View the website by opening a Chrome browser and enter:   
   http://localhost:9292
 
-7. Enjoy!
+7. View development database
+  - TablePlus (optional, Graphic User Interface to view development database)  
+     https://tableplus.com/  
+
+  - Or use terminal command: psql  
+      - Select database: \C MakersBnB_development;
+      - view all tables: \dt;
+      - view a table: SELECT * FROM table_name;
+
+8. Enjoy!
 
 ------
+### Authors
+- Nathan Hynes: NathanHynes
+- Josh Davies: JoshDavies
+- Sid Mason-Malik: smasonmalik
+- Nabille Helal: NabilleH
