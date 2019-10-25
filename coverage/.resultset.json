@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/Guest_limited_access_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/Guest_limited_access_spec.rb": [
         1,
         1,
         1,
@@ -23,7 +23,7 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/add_listing_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/add_listing_spec.rb": [
         1,
         null,
         1,
@@ -43,7 +43,7 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/add_request_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/add_request_spec.rb": [
         1,
         1,
         1,
@@ -59,7 +59,7 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/approving_booking_request_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/approving_booking_request_spec.rb": [
         1,
         1,
         1,
@@ -88,7 +88,23 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/user_login_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/password_validation_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/student/Projects/MakersBnB/spec/features/user_login_spec.rb": [
         null,
         null,
         1,
@@ -118,25 +134,18 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/user_signup_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/user_signup_spec.rb": [
         null,
         null,
         1,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
         1,
         1,
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/view_booking_requests_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/view_booking_requests_spec.rb": [
         1,
         null,
         1,
@@ -181,19 +190,11 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/view_listings_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/view_listings_spec.rb": [
         1,
         null,
         1,
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
         1,
         1,
         1,
@@ -201,13 +202,6 @@
         null,
         null,
         1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         1,
         1,
         1,
@@ -221,7 +215,7 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/features/view_my_confirmed_stays_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/features/view_my_confirmed_stays_spec.rb": [
         1,
         1,
         1,
@@ -235,7 +229,7 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/models/listing_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/models/listing_spec.rb": [
         1,
         null,
         1,
@@ -249,15 +243,13 @@
         null,
         null
       ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/models/request_spec.rb": [
-
-      ],
-      "/Users/student/Documents/Makers Academy/Projects/Weekday-Challenges/MakersBnB/spec/models/user_spec.rb": [
+      "/Users/student/Projects/MakersBnB/spec/models/user_spec.rb": [
         1,
         null,
         1,
         1,
         1,
+        null,
         null,
         null,
         null,
@@ -278,12 +270,14 @@
         null,
         null,
         null,
+        null,
         1,
         1,
         null,
         null,
         1,
         1,
+        null,
         null,
         null,
         null,
@@ -295,6 +289,6 @@
         null
       ]
     },
-    "timestamp": 1572014353
+    "timestamp": 1572037545
   }
 }
