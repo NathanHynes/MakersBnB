@@ -9,7 +9,7 @@ require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 
 CarrierWave.configure do |config|
-  config.root = "public/listing_images"
+  config.root = "app/public/"
 end
 
 class MakersBnB < Sinatra::Base
