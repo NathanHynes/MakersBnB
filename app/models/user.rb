@@ -2,8 +2,9 @@ require 'bcrypt'
 
 class User
   include DataMapper::Resource
+  include BCrypt
 
-  attr_accessor :password
+  attr_accessor :password, :password_confirmation
 
   property :id, Serial
   property :forename, String, :length => 40, :required => true,
@@ -26,6 +27,8 @@ class User
     :is_unique => "Username already used",
   }
   property :crypted_pass, String, :length => 60..60, :required => true, :writer => :protected
+
+  validates_confirmation_of :password
 
   has n, :listings
   has n, :bookingrequests

@@ -1,4 +1,17 @@
 <!DOCTYPE HTML>
+<html lang = "en">
+<head>
+  <title>bMakersBnB</title>
+  <meta charset = "UTF-8" />
+  <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+  <center>
+    <img id="main-img" src="images/logo.png" alt="MakersBnB logo" style="width:15em;height:15em;">
+  </center>
+  <% if current_user %>
+  <center>
+    <h1>Welcome <%= current_user.username %></h1>
 <html lang="en">
   <head>
     <title>bMakersBnB</title>
@@ -31,7 +44,7 @@
               <input type="email" class="input" name="email" autocomplete="off" placeholder="Email">
               <input type="text" class="input" name="username" autocomplete="off" placeholder="Username">
               <input type="password" class="input" name="password" autocomplete="off" placeholder="Password">
-              <input type="password" class="input" name="password_confirm" autocomplete="off" placeholder="Password">
+              <input type="password" class="input" name="password_confirmation" autocomplete="off" placeholder="Password">
               <input type="submit" class="button" value="Sign Up">
             </form>
             <div class="guest">

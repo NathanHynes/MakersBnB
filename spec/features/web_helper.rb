@@ -7,7 +7,7 @@ def user_sign_up
   fill_in(:email, with: 'test@test.com')
   fill_in(:username, with: 'JoeBloggs')
   fill_in(:password, with: 'password1234')
-  fill_in(:password_confirm, with: 'password1234')
+  fill_in(:password_confirmation, with: 'password1234')
   click_button 'Sign Up'
 end
 
@@ -18,7 +18,7 @@ def user_sign_up_two
   fill_in(:email, with: 'test@test.com')
   fill_in(:username, with: 'JoeBloggs')
   fill_in(:password, with: 'password1234')
-  fill_in(:password_confirm, with: 'password1234')
+  fill_in(:password_confirmation, with: 'password1234')
   click_button 'Sign Up'
 end
 
@@ -43,7 +43,7 @@ def user2_sign_up
   fill_in(:email, with: 'moe@test.com')
   fill_in(:username, with: 'Moe')
   fill_in(:password, with: 'password1234')
-  fill_in(:password_confirm, with: 'password1234')
+  fill_in(:password_confirmation, with: 'password1234')
   click_button 'Sign Up'
 end
 
@@ -54,7 +54,7 @@ def user3_sign_up
   fill_in(:email, with: 'Jones@test.com')
   fill_in(:username, with: 'tomjones')
   fill_in(:password, with: 'password1234')
-  fill_in(:password_confirm, with: 'password1234')
+  fill_in(:password_confirmation, with: 'password1234')
   click_button 'Sign Up'
 end
 
@@ -115,4 +115,3 @@ def multiple_requests
   click_button 'Submit'
   user_log_out
 end
-
