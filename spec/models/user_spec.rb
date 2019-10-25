@@ -7,7 +7,8 @@ describe User do
       :surname => 'Bloggs',
       :email => 'noddy@hotmail.com',
       :username => 'JoeBloggs',
-      :password => 'password123'
+      :password => 'password123',
+      :password_confirmation => 'password123'
     )
     expect(user).to be_a User
     expect(user.username).to eq 'JoeBloggs'
@@ -21,7 +22,8 @@ describe User do
       :surname => 'Bloggs',
       :email => 'noddy@hotmail.com',
       :username => 'JoeBloggs',
-      :password => 'password123'
+      :password => 'password123',
+      :password_confirmation => 'password123'
     )
     authenticated_user = User.authenticate(username: 'JoeBloggs', password: 'password123')
     expect(authenticated_user.id).to eq user.id
@@ -33,7 +35,8 @@ describe User do
       :surname => 'Bloggs',
       :email => 'noddy@hotmail.com',
       :username => 'JoeBloggs',
-      :password => 'password123'
+      :password => 'password123',
+      :password_confirmation => 'password123'
     )
     expect(User.authenticate(username: 'FalseUser', password: 'password123')).to be_nil
   end
