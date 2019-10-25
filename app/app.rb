@@ -8,6 +8,10 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 
+CarrierWave.configure do |config|
+  config.root = "public/listing_images"
+end
+
 class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
 
