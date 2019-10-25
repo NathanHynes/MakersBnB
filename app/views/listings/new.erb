@@ -4,12 +4,13 @@
 <body>
 <h2>Please provide your property information below:</h2>
 
-<form action="/listings" method="post">
+<form action="/listings" method="post" enctype="multipart/form-data">
   <input type="text" name="name" placeholder="Enter name" />
   <input type="text" name="description" placeholder="Please describe" />
   <input type="text" name="cost" placeholder="Cost per night" />
   <input type="date" name="date_from" placeholder="Enter from date" />
   <input type="date" name="date_to" placeholder="Enter end date" />
+  <input type='file' name='image' class='form-control'>
   <input type="submit" value="Submit"/>
 </form>
 

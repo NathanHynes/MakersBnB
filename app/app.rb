@@ -8,6 +8,10 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 require_relative 'data_mapper_setup'
 
+CarrierWave.configure do |config|
+  config.root = "app/public/"
+end
+
 class MakersBnB < Sinatra::Base
   enable :sessions, :method_override
 
@@ -49,10 +53,10 @@ class MakersBnB < Sinatra::Base
 
     def save_booking(booking)
         listing = Listing.get(booking.listing_id)
-        p listing
+        # p listing
         # p booking.listing.user
         owner = User.get(listing.user_id)
-        p owner
+        # p owner
         flash[:success] = "#{current_user.username} has sent booking request to #{owner.username}"
     end
   end

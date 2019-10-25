@@ -8,10 +8,12 @@ gem 'json'
 gem 'rack'
 gem 'rake'
 gem 'rubocop', '0.71.0'
+gem 'sendgrid-ruby'
 gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'carrierwave-datamapper', :require => 'carrierwave/datamapper'
 
 group :test do
   gem 'database_cleaner'

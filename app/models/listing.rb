@@ -1,3 +1,10 @@
+require 'carrierwave/datamapper'
+
+class ImageUploader < CarrierWave::Uploader::Base
+
+  storage :file
+  end
+
 class Listing
 
 include DataMapper::Resource
@@ -18,6 +25,9 @@ property :date_from, Date, :required => true, :messages => {
 property :date_to, Date, :required => true, :messages => {
  :presence => "Please enter an end date for your listing"
 }
+
+mount_uploader :image, ImageUploader
+
 
 belongs_to :user
 has n, :bookingrequests
