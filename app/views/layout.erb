@@ -5,11 +5,25 @@
     <title>MakersBnb</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
     <script>
       $(document).ready(function () {
         $(".close").click(function () {
           $("#myAlert").alert("close");
         });
+
+        tab = $('.tabs h3 a');
+
+        tab.on('click', function(event) {
+          event.preventDefault();
+          tab.removeClass('active');
+          $(this).addClass('active');
+
+          tab_content = $(this).attr('href');
+          $('div[id$="tab-content"]').removeClass('active');
+          $(tab_content).addClass('active');
+        });
+
       });
     </script>
 
@@ -20,6 +34,11 @@
       body {
         font-family: 'Montserrat', sans-serif;
       }
+
+      a {
+        text-decoration: none;
+      }
+
 
       .home {
         background-image: url("images/background2.jpg");
@@ -50,7 +69,23 @@
         width: 100%;
         top: 4px;
         left: -2px;
-        z-index: 10;
+        z-index: 1;
+        background: inherit;
+        overflow: hidden;
+      }
+
+      #navbar:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        box-shadow: inset 0 20px 200px rgba(255, 255, 255, 0.5);
+        filter: blur(30px);
+        margin: -20px;
+        z-index: -1;
       }
 
       #nav-logo {
@@ -61,13 +96,15 @@
         list-style: none;
         display: flex;
         justify-content: space-around;
-        width: 300px;
-        padding-right: 10px;
+        width: 433px;
+        padding-right: 23px;
       }
 
       .nav-link {
         text-decoration: none;
         color: black;
+        margin-right: 10px;
+        font-size: 15px;
       }
 
       #main-img {
@@ -76,10 +113,9 @@
 
       .sign-out {
         float: right;
-        padding-left: 20px;
         padding-top: 30px;
         position: relative;
-        left: 185px;
+        left: 200px;
       }
 
       .welcome {
@@ -130,6 +166,10 @@
         color: red;
       }
 
+      .welcome-message {
+        color: white;
+      }
+
       /* .approve {
         float: right;
         position: relative;
@@ -141,6 +181,152 @@
       /* .request {
         padding-top: 40px;
       } */
+
+      .form-wrap {
+        width: 455px;
+        margin: 3em auto;
+      }
+
+      .form-wrap .tabs {
+        overflow: hidden;
+      }
+
+      .form-wrap .tabs h3 {
+        float: left;
+        width: 50%;
+      }
+
+      .form-wrap .tabs h3 a {
+        padding: 0.5em 0;
+        text-align: center;
+        font-weight: 400;
+        background-color: #e6e7e8;
+        display: block;
+        color: #666;
+      }
+
+      .form-wrap .tabs h3 a.active {
+        background-color: #fff;
+      }
+
+      .form-wrap .tabs-content {
+        padding: 1.5em;
+      }
+
+      .form-wrap .tabs-content div[id$="tab-content"] {
+        display: none;
+      }
+
+      .form-wrap .tabs-content .active {
+        display: block !important;
+      }
+
+      .form-wrap form .input {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        color: inherit;
+        font-family: inherit;
+        padding: 0.8em 0 10px 0.8em;
+        border: 1px solid #CFCFCF;
+        outline: 0;
+        display: inline-block;
+        margin: 0 0 0.8em;
+        padding-right: 2em;
+        width: 100%;
+        background: inherit;
+        box-shadow: inset 0 20px 200px rgba(255, 255, 255, 0.5);
+      }
+
+      .form-wrap form .button {
+        width: 100%;
+        padding: 0.8em 0 10px 0.8em;
+        background-color: #F7BF36;
+        border: none;
+        color: black;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+
+      .form-wrap form .checkbox {
+        visibility: hidden;
+        padding: 20px;
+        margin: 0.5em 0 1.5em;
+      }
+
+      .form-wrap form .checkbox:checked+label:after {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+          position: relative;
+          padding-left: 20px;
+          cursor: pointer;
+        }
+
+        .form-wrap form label[for]:before {
+          content: '';
+          position: absolute;
+          border: 1px solid #CFCFCF;
+          width: 17px;
+          height: 17px;
+          top: 0;
+          left: -14px;
+        }
+
+        .form-wrap form label[for]:after {
+          -ms-filter:  "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+          filter: alpha(opacity=0);
+          opacity: 0;
+          content: '';
+          position: absolute;
+          width: 9px;
+          height: 5px;
+          background-color: transparent;
+          top: 4px;
+          left: -10px;
+          border: 3px solid #28A55F;
+          border-top: none;
+          border-right: none;
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+
+        .form-wrap .guest {
+          margin-top: 0.6em;
+        }
+
+        .form-wrap .guest p {
+          text-align: center;
+          font-size: 14px;
+          color: white;
+        }
+
+        .form-wrap .guest a {
+          color: white;
+        }
+
+        .tabs-content {
+          width: 398px;
+        }
+
+        .input::placeholder {
+          color: black;
+        }
+
+
+        @-webkit-keyframes autofill {
+          to {
+            color: black;
+            background: transparent;
+          }
+        }
+
+      input:-webkit-autofill {
+        -webkit-animation-name: autofill;
+        -webkit-animation-fill-mode: both;
+      }
+
+
     </style>
   </head>
   <body>

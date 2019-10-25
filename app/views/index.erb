@@ -1,58 +1,61 @@
 <!DOCTYPE HTML>
-<html lang = "en">
-<head>
-  <title>bMakersBnB</title>
-  <meta charset = "UTF-8" />
-</head>
-<body class="home">
-  <center>
-    <img id="main-img" src="images/logo.png" alt="MakersBnB logo" style="width:15em;height:15em;">
-  </center>
-  <% if current_user %>
-  <center>
-    <h1>Welcome <%= current_user.username %></h1>
+<html lang="en">
+  <head>
+    <title>bMakersBnB</title>
+    <meta charset="UTF-8"/>
+  </head>
+  <body class="home">
+    <center>
+      <img id="main-img" src="images/logo.png" alt="MakersBnB logo" style="width:15em;height:15em;">
     </center>
+    <% if current_user %>
+      <center>
+        <h1 class="welcome-message">Welcome
+          <%= current_user.username %></h1>
+      </center>
     <% else %>
-  <div id="log_in">
-    <form action="/sessions" method="post">
-      <input type="text" name="username_login" placeholder="Username">
-      <input type="password" name="password_login" placeholder="Password">
-      <input type="submit" value="Log In">
-    </form>
-    <br>
-    <br>
-    </div>
-    <div id="sign_in">
-      <form action="/users" method = 'post'>
-        <input type="text" name="forename" placeholder="First name">
-        <input type="text" name="surname" placeholder="Surname">
-        <input type="email" name="email" placeholder="E-mail address">
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="password_confirm" placeholder="Password">
-        <input type="submit" value="Sign Up">
-      </form>
-  </div>
-  <br>
-  <br>
-  <div class="guest">
-    <a href="/listings">Continue as Guest</a>
-
-  </div>
-  <% end %>
-</body>
-
-<script>
-  $(document).ready(function() {
-    // console.log("hello")
-      $.get('/test', function(object) {
-        // obj = JSON.parse(data)
-        // console.log(obj)
-        // console.log(obj.date_from)
-        // console.log(obj.date_to)
-        // console.log("obj is defined above")
-        console.log(object)
-      });
-      });
-</script>
+      <div class="form-wrap">
+        <div class="tabs">
+          <h3 class="signup-tab">
+            <a href="#signup-tab-content">Sign Up</a>
+          </h3>
+          <h3 class="login-tab">
+            <a class="active" href="#login-tab-content">Login</a>
+          </h3>
+        </div>
+        <div class="tabs-content">
+          <div id="signup-tab-content">
+            <form class="signup-form" action="/users" method='post'>
+              <input type="text" class="input" name="forename" autocomplete="off" placeholder="Forename">
+              <input type="text" class="input" name="surname" autocomplete="off" placeholder="Surname">
+              <input type="email" class="input" name="email" autocomplete="off" placeholder="Email">
+              <input type="text" class="input" name="username" autocomplete="off" placeholder="Username">
+              <input type="password" class="input" name="password" autocomplete="off" placeholder="Password">
+              <input type="password" class="input" name="password_confirm" autocomplete="off" placeholder="Password">
+              <input type="submit" class="button" value="Sign Up">
+            </form>
+            <div class="guest">
+              <p>
+                <a href="/listings">Continue as Guest</a>
+              </p>
+            </div>
+          </div>
+          <div id="login-tab-content" class="active">
+            <form class="login-form" action="/sessions" method="post">
+              <input type="text" class="input" name="username_login" autocomplete="off" placeholder="Username">
+              <input type="password" class="input" name="password_login" autocomplete="off" placeholder="Password">
+              <input type="submit" class="button" value="Log In">
+            </form>
+            <div class="guest">
+              <p>
+                <a href="/listings">Continue as Guest</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+    <% end %>
+  </body>
 </html>
